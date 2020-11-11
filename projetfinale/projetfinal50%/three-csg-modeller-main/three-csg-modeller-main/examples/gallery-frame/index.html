@@ -1,0 +1,104 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf8">
+    <title>Gallery Frame</title>
+    <link rel="icon" href="#">
+    <link rel="stylesheet" href="../index.css">
+</head>
+
+<body>
+    <script type="module">
+        import * as THREE from "https://unpkg.com/three@0.121.1/build/three.module.js"
+        import { OrbitControls } from "https://unpkg.com/three@0.121.1/examples/jsm/controls/OrbitControls"
+        import { CSGModeller } from "../../src/index.js";
+
+        // ----
+        // Boot
+        // ----
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, 2, .1, 100);
+        const controls = new OrbitControls(camera, renderer.domElement);
+        window.addEventListener('resize', () => {
+            const { clientWidth, clientHeight } = renderer.domElement;
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(clientWidth, clientHeight, false);
+            camera.aspect = clientWidth / clientHeight;
+            camera.updateProjectionMatrix();
+        });
+        document.body.prepend(renderer.domElement);
+        window.dispatchEvent(new Event('resize'));
+        renderer.setAnimationLoop(() => {
+            renderer.render(scene, camera);
+            controls.update();
+        });
+
+        // ----
+        // Main
+        // ----
+
+        camera.position.set(2, 1, 2);
+        controls.autoRotate = true;
+        scene.background = new THREE.Color("white");
+        scene.add(new THREE.HemisphereLight("white", "powderblue"));
+
+        const tl = new THREE.TextureLoader();
+        const woodMat = new THREE.MeshLambertMaterial({ map: tl.load("wood.jpg") });
+        const marbleMat = new THREE.MeshLambertMaterial({ map: tl.load("marble.jpg") });
+
+        const boxMesh0 = new THREE.Mesh(
+            new THREE.BoxBufferGeometry(1.6, 0.9, 0.2),
+            woodMat
+        );
+
+        const boxMesh1 = new THREE.Mesh(
+            new THREE.BoxBufferGeometry(1.5, 0.8, 0.2),
+            [woodMat, woodMat, woodMat, woodMat, marbleMat, marbleMat]
+        );
+
+        let cylinderMesh;
+        {
+            const geom = new THREE.CylinderBufferGeometry(0.25, 0.25, 0.1, 32);
+            geom.rotateX(-Math.PI / 2);
+            geom.translate(0, 0, -0.05);
+            cylinderMesh = new THREE.Mesh(geom, woodMat);
+        }
+
+        // +----
+        // Modeling
+        // +----
+
+        const modeller = new CSGModeller(THREE);
+
+        let outerModel;
+        {
+            const A = modeller.model(boxMesh0);
+            boxMesh1.position.set(0, 0, 0.1);
+            const B = modeller.model(boxMesh1);
+            outerModel = A.subtract(B);
+        }
+
+        let innerModel;
+        {
+            innerModel = modeller.model(cylinderMesh);
+        }
+
+        let innerMostModel;
+        {
+            cylinderMesh.scale.set(0.8, 0.8, 1);
+            cylinderMesh.material = woodMat;
+            innerMostModel = innerModel.subtract(modeller.model(cylinderMesh));
+        }
+
+        let frameModel;
+        {
+            frameModel = innerMostModel.union(outerModel.subtract(innerModel));
+        }
+
+        // Build mesh and add it to scene.
+        const mesh = frameModel.build();
+        scene.add(mesh);
+    </script>
+</body>

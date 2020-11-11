@@ -1,0 +1,357 @@
+
+/**
+cisse fousseni
+style.css
+20/10/2020
+ */
+
+
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: blueviolet;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "trebuchet ms";
+    font-size: 16px;
+    color: #fff;
+    background-color: black;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+table {
+    text-align: left;
+    width:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+td, th {
+    vertical-align:top;
+    padding: 20px;
+}
+.dessus {
+    position: absolute;
+    top: 300px;
+    text-align:center;
+    height: 100px;
+    width:100%;
+    z-index: 110;
+    -webkit-animation: dessus 1s; /* Chrome, Safari, Opera */
+    animation: dessus 1s;
+}
+.intro {
+    height: 100vh;
+    margin: 0;
+}
+h1, h2 {
+    font-family: 'Lobster', cursive;
+}
+h1 {
+    font-size: 4em;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    font-size: 2em;
+}
+hr {
+    width: 30%;
+    border: 0 none;
+    border-top: 2px solid rgba(255,255,255,0.2);
+    margin: 40px auto;
+}
+.welcome {
+    height:100%;
+    width: 100%;
+    background-color: #CC6666;
+}
+.container1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.container2 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+/*.img-anne {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+.img-anne {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+}}*/
+.box1, .box2, .box3, .box4 {
+    height: 600px;
+    float: left;
+    width: 25%;
+    transition: background-color 0.5s ease;
+}
+.box1:hover, .box2:hover, .box3:hover, .box4:hover {
+    color: #fff;
+}
+.box1:hover {
+    background: #f9d33c;
+    color: #000222;
+}
+.box1:hover hr {
+    border-top: 2px solid rgba(0,2,34,0.2);
+}
+.box2:hover {
+    background: #6ed3e7;
+    color: #000222;
+}
+.box2:hover hr {
+    border-top: 2px solid rgba(0,2,34,0.2);
+}
+.box3:hover {
+    background: #fd5055;
+}
+.box4:hover {
+    background: #f86a20;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes dessus {
+    from {top: 0px;}
+    to {top: 300px;}
+}
+
+/* Standard syntax */
+@keyframes dessus {
+    from {top: 0px;}
+    to {top: 300px;}
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+/*header*/
+/*Footer*/
+/* creer les grilles grid et y placer les liens */
+.footer-contact{
+    list-style: none;
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: 1fr 150px 120px 120px 150px 1fr;
+    grid-template-areas:
+    ". a-propos-de-nous aide faq contactez-nous .";
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+}
+
+.a-propos-de-nous{
+    grid-area: a-propos-de-nous;
+    justify-self: center;
+    align-self: center;
+}
+
+.aide{
+    grid-area: aide;
+    justify-self: center;
+    align-self: center;
+}
+
+.faq{
+    grid-area: faq;
+    justify-self: center;
+    align-self: center;
+}
+
+.contactez-nous{
+    grid-area: contactez-nous;
+    justify-self: center;
+    align-self: center;
+}
+
+/*placer les icones reseaux sociaux dans les grilles grid*/
+.icone-reseau-sociaux{
+    list-style: none;
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: 1fr 50px 50px 50px 50px 1fr;
+    grid-template-areas:
+    ". facebook instagram youtube git";
+}
+
+.facebook{
+    grid-area: facebook;
+    justify-self: center;
+    align-self: center;
+}
+
+.instagram{
+    grid-area: instagram;
+    justify-self: center;
+    align-self: center;
+}
+
+.youtube{
+    grid-area: youtube;
+    justify-self: center;
+    align-self: center;
+}
+
+.git{
+    grid-area: git;
+    justify-self: center;
+    align-self: center;
+}
+
+/*appliquer une couleur au background et des effets :hover aux liens du footer*/
+
+footer{
+    background: #9E9E9E;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+i{
+    font-size: 24px;
+}
+
+a:hover{
+    font-size: 16px;
+}
+
+i:hover{
+    font-size: 27px;
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+* {
+    box-sizing: border-box;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+}
+
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+}
+
+@property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+}
+
+body {
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+    background-color: rgba(10, 12, 18, 1);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    margin: 0;
+}
+
+:root {
+    --d: 2500ms;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: rgba(168, 239, 255, 1);
+    --c2: rgba(168, 239, 255, 0.1);
+}
+
+.wrapper {
+    min-width: min(40rem, 100%);
+}
+
+.box {
+    font-size: 3vw;
+    margin: max(1rem, 3vw);
+    border: 0.35rem solid;
+    padding: 3vw;
+    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+.box:nth-child(2) {
+    border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+    animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
+}
+
+@keyframes borderRadial {
+    20% {
+        --gradX: 100%;
+        --gradY: 50%;
+    }
+    40% {
+        --gradX: 100%;
+        --gradY: 100%;
+    }
+    60% {
+        --gradX: 50%;
+        --gradY: 100%;
+    }
+    80% {
+        --gradX: 0%;
+        --gradY: 50%;
+    }
+    100% {
+        --gradX: 50%;
+        --gradY: 0%;
+    }
+}

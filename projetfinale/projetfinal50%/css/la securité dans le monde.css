@@ -1,0 +1,340 @@
+/**
+cisse fousseni
+style.css
+20/10/2020
+ */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+/*header*/
+/*Footer*/
+/* creer les grilles grid et y placer les liens */
+.footer-contact{
+    list-style: none;
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: 1fr 150px 120px 120px 150px 1fr;
+    grid-template-areas:
+    ". a-propos-de-nous aide faq contactez-nous .";
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+}
+
+.a-propos-de-nous{
+    grid-area: a-propos-de-nous;
+    justify-self: center;
+    align-self: center;
+}
+
+.aide{
+    grid-area: aide;
+    justify-self: center;
+    align-self: center;
+}
+
+.faq{
+    grid-area: faq;
+    justify-self: center;
+    align-self: center;
+}
+
+.contactez-nous{
+    grid-area: contactez-nous;
+    justify-self: center;
+    align-self: center;
+}
+
+/*placer les icones reseaux sociaux dans les grilles grid*/
+.icone-reseau-sociaux{
+    list-style: none;
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: 1fr 50px 50px 50px 50px 1fr;
+    grid-template-areas:
+    ". facebook instagram youtube git";
+}
+
+.facebook{
+    grid-area: facebook;
+    justify-self: center;
+    align-self: center;
+}
+
+.instagram{
+    grid-area: instagram;
+    justify-self: center;
+    align-self: center;
+}
+
+.youtube{
+    grid-area: youtube;
+    justify-self: center;
+    align-self: center;
+}
+
+.git{
+    grid-area: git;
+    justify-self: center;
+    align-self: center;
+}
+
+/*appliquer une couleur au background et des effets :hover aux liens du footer*/
+
+footer{
+    background: #9E9E9E;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+i{
+    font-size: 24px;
+}
+
+a:hover{
+    font-size: 16px;
+}
+
+i:hover{
+    font-size: 27px;
+}
+h1{
+    text-align: center;
+}
+
+
+
+
+p {
+    margin-top: 0px;
+}
+
+fieldset {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+legend {
+    padding: 0px 3px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+label {
+    width: 110px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px;
+}
+
+em {
+    font-weight: bold;
+    font-style: normal;
+    color: #f00;
+}
+
+input:focus {
+    background: #eaeaea;
+}
+
+input, textarea {
+    width: 249px;
+}
+
+textarea {
+    height: 100px;
+}
+
+select {
+    width: 254px;
+}
+
+input[type=checkbox] {
+    width: 10px;
+}
+
+input[type=submit] {
+    width: 150px;
+    padding: 10px;
+    background-color: red;
+}
+
+body{
+
+    background-color: #1CE2B2;
+}
+
+
+#section3{
+    padding: 200px;
+
+}
+
+
+
+
+#c{
+    color: red;
+
+}
+
+
+
+
+
+
+.box {
+    background-color: #61ab20;
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+    position: relative;
+    box-shadow: inset 0 0 3px #000;
+    border-radius: 5px;
+    border: 1px solid #111;
+    overflow: hidden;
+}
+.box b {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3673cf;
+    box-shadow: inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04);
+    position: absolute;
+    -webkit-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+    -moz-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+    -o-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+    animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes moveX {
+    from { left: 0; } to { left: 480px; }
+}
+@-moz-keyframes moveX {
+    from { left: 0; } to { left: 480px; }
+}
+@-o-keyframes moveX {
+    from { left: 0; } to { left: 480px; }
+}
+@keyframes moveX {
+    from { left: 0; } to { left: 480px; }
+}
+@-webkit-keyframes moveY {
+    from { top: 0; } to { top: 280px; }
+}
+@-moz-keyframes moveY {
+    from { top: 0; } to { top: 280px; }
+}
+@-o-keyframes moveY {
+    from { top: 0; } to { top: 280px; }
+}
+@keyframes moveY {
+    from { top: 0; } to { top: 280px; }
+}
+
+
+
+.creativefields {
+    text-align: center;
+    max-width: 35em;
+    margin: 2em auto 2em;
+    font-family:eurostile
+}
+.creativefields dt {
+    display: inline-block;
+    vertical-align: top;
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.creativefields dt:hover {
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+
+
+
+.creativefields .DV {
+    vertical-align: middle;
+
+    width: 3em;
+    height: 3em;
+    line-height: 3em;
+    background-color: rgba(119, 38, 38,1);
+    color: white;
+}
+.creativefields .vide {
+    color:transparent;
+}
+.creativefields .Vidéo {
+    vertical-align: bottom;
+
+    width: 5em;
+    height: 5em;
+    line-height: 5em;
+    background-color: rgba(219, 219, 219, 1);
+    color: white;
+}
+.creativefields .photo {
+    vertical-align: top;
+
+    width: 6em;
+    height: 6em;
+    line-height: 6em;
+
+    background-color: rgba(76, 76, 76, 1);
+    color:white;
+}
+.creativefields .graph {
+    width: 150px;
+    height: 150px;
+    line-height: 9em;
+    background-color: rgba(119, 38, 38,1);
+    color: white;
+}
+.creativefields .DP {
+    vertical-align: bottom;
+
+    width: 4em;
+    height: 4em;
+    line-height: 3.9em;
+    background-color: rgba(219, 219, 219, 11);
+    color: white;
+}
+.creativefields .DE {
+    width: 11em;
+    height: 11em;
+    line-height: 11em;
+
+    background-color: rgba(174, 174, 174, 1);
+    color: white;
+}
+.creativefields .DI {
+    width: 14em;
+    height: 14em;
+    line-height: 14em;
+    background-color: black;
+    color: white;
+}
